@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+      姓名：<input type="text" h-model='name'> <br />
+      年龄：<input type="text" h-model='age'> <br />
+      性别：<input type="text" h-model='sex'>
+      <br />
+      名字：<div h-bind="name"></div>
+      年龄：<div h-bind="age"></div>
+      性别：<div h-bind="sex"></div>
+      <button onclick="getVal(0)">提交</button>
+
+      <div>-----------------------</div>
+
+      姓名：<input type="text" h-model='user.name'> <br />
+      年龄：<input type="text" h-model='user.age'> <br />
+      性别：<input type="text" h-model='user.sex'>
+      <br />
+      名字：<div h-bind="user.name"></div>
+      年龄：<div h-bind="user.age"></div>
+      性别：<div h-bind="user.sex"></div>
+      <button onclick="getVal(1)">提交</button>
+  </div>
+
+  <script src="./core.js"></script>
+  <script>
+
+    var name = '';
+    var age = '';
+    var sex = '';
+
+    var user = {
+      name: '',
+      age: '',
+      sex: ''
+    }
+
+    inputModel();
+    templateRender();
+
+    let obj = {name: '1', address: {name: '上海', dis: {
+      value: '青浦'
+    }}};
+
+
+
+
+    console.log(evData('obj.address.name'))
+
+    console.log(evData('obj.address.dis.value'))
+
+
+
+
+
+
+    // function render(){
+    //   let app = document.querySelector('#app');
+    //   let matchData = app.textContent.match(/\{{(.*)\}\}/g);
+    //   console.log(matchData, '1111')
+    //   matchData.forEach(txt => {
+    //     app.outerHTML = app.outerHTML.replace(txt, evData(txt.replace('{{','').replace('}}', '')))
+    //   })
+    //   // var children = [...app.children];
+    // }
+  </script>
+</body>
+</html>
